@@ -1,5 +1,5 @@
 program test;
-
+{$UNITPATH\SDL2}
 uses SDL2, SDL2_image; //On Utilise SDL_image pour les images dans un autre format que le bmp
 
 var
@@ -33,7 +33,7 @@ begin
 
     //On met le tileset dans la texture 'Helico'
 
-  	Helico := IMG_LoadTexture( Renderer, 'helicopter.png' );
+  	Helico := IMG_LoadTexture( Renderer, 'assets\helicopter.png' );
   	if Helico = nil then HALT;
 
 	//On prepare les variables
@@ -66,12 +66,12 @@ begin
 				begin
 					Recthelico.x := 0; //On revient au début
 				end;
-				
+
 				SDL_Delay (1); //Pendant 0.001 secondes ->
 
 				//===================== AFFICHAGE D'UN BMP =====================//
 
-				SurfaceRider := SDL_LoadBMP('rider.bmp'); //On met l'image dans une surface
+				SurfaceRider := SDL_LoadBMP('assets\rider.bmp'); //On met l'image dans une surface
 				if SurfaceRider = nil then Halt;
 
 				TextureRider := SDL_CreateTextureFromSurface (Renderer, SurfaceRider);
